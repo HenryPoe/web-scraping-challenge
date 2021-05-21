@@ -6,33 +6,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mars Scraper</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
-  <div class="container">
+    <div class="container">
 
-    <div class="jumbotron text-center">
-      <h1>Mission To Mars</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        <div class="jumbotron text-center">
+            <h1>Mission To Mars</h1>
+            <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        </div>
+
+        <!-- Mars Data -->
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-primary">Latest Mars News</h2>
+                <h4 class="heading">{{mars_data.news_title}}</h4>
+                <p>{{mars_data.news_text}}</p>
+            </div>
+            <div class="col-md-6">
+                <br>
+                <h4 class="text-danger">Featured Space Image</h4>
+                <img class="img-fluid" src={{mars_data.space_image}}>
+            </div>
+            <div class="col-md-6">
+                <br>
+                <br>
+                <br>
+                {{mars_data.mars_comparison_table}}
+            </div>
+            <div class="col-md-12">
+                <br>
+                <br>
+                <h3 class="text-center"><strong>Mars Hemispheres</strong></h3>
+                <hr>
+            </div>
+            <div class="col-md-12">
+                <div class="card-group">
+                    <div class="card">
+                        <img src="{{mars_data.hemisphere_images[0]['img_url']}}" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text"><strong>{{mars_data.hemisphere_images[0]['title']}}</strong></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="{{mars_data.hemisphere_images[1]['img_url']}}" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text"><strong>{{mars_data.hemisphere_images[1]['title']}}</strong></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="{{mars_data.hemisphere_images[2]['img_url']}}" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text"><strong>{{mars_data.hemisphere_images[2]['title']}}</strong></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="{{mars_data.hemisphere_images[3]['img_url']}}" class="card-img-top">
+                        <div class="card-body">
+                            <p class="card-text"><strong>{{mars_data.hemisphere_images[3]['title']}}</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-    <!-- Mars Data -->
-    <div class="row">
-      <div class="col-md-12">
-        <h4 class="heading">{{mars_data.news_title}}</h4>
-        <p>{{mars_data.news_text}}</p>
-      </div>
-      <div class="col-md-12">
-        <h4 class="heading">{{mars_data.space_image}}</h4>
-        <p>{{mars_data.mars_comparison_table}}</p>
-      </div>
-      <div class="col-md-12">
-        <p>{{mars_data.hemisphere_images}}</p>
-      </div>
-    </div>
-
-  </div>
 </body>
 
 </html>
